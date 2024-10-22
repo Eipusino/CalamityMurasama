@@ -3,7 +3,7 @@ This mod is designed to add Murasama separately, so that Murasama can be used in
 
 I am currently stuck on this project. If you are willing to help me or even take over the project, please contact me.
 
-If you just want use this mod, you can download it on Tmodloader workshop.
+If you just want play this mod, you can download it on Tmodloader workshop.https://steamcommunity.com/sharedfiles/filedetails/?id=3352806377
 
 Please note that this mod is currently unfinished, and while it works fine, my goal is to re-implements Murasama as completely as possible. At present, it has been determined that these functions are different from the original Murasama, and they will be corrected in the future as much as possible:
 
