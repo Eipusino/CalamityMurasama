@@ -30,7 +30,7 @@ namespace CalMurasama.Items
         {
             Item.width = 90;
             Item.height = 134;
-            Item.damage = 1;
+            Item.damage = 10;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.noMelee = true;
             Item.noUseGraphic = true;
@@ -43,7 +43,7 @@ namespace CalMurasama.Items
             Item.value = 0 ;
             Item.shoot = ModContent.ProjectileType<MurasamaSlash>();
             Item.shootSpeed = 24f;
-            Item.rare = ItemRarityID.Cyan;
+            Item.rare = ItemRarityID.Yellow;
         }
 
         // Terraria seems to really dislike high crit values in SetDefaults
@@ -105,12 +105,6 @@ namespace CalMurasama.Items
             return false;
         }
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.CopperShortsword);
-            recipe.Register();
-        }
 
 
 
