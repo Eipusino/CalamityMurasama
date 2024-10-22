@@ -13,3 +13,8 @@ Incomplete Particles: The original version will splash round and long particles 
 Murasama is made by Calamity Mod, I HAVE NO ownership over it nor its assets nor code.
 
 Calamity Mod Public repo:https://github.com/CalamityTeam/CalamityModPublic
+
+icon_workshop.gif:
+This file is took from Official Calamity Mod Wiki.
+
+This gif is refer to a method from https://steamcommunity.com/sharedfiles/filedetails/?id=2936720761 for upload to workshop.
