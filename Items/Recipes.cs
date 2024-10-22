@@ -5,16 +5,34 @@ using Terraria.ModLoader;
 
 namespace CalMurasama.Items
 {
-	public class Recipes : ModSystem
-	{
-		public override void AddRecipes() {
+        public static void DontConsumeSword(Recipe recipe, int type, ref int amount)
+        {
+            if (type == ItemID.CopperShortsword)
+            {
+                amount = 0;
+            }
+            else if (type == ItemID.IronShortsword)
+            {
+                amount = 0;
+            }
+            else if (type == ItemID.TinShortsword)
+            {
+                amount = 0;
+            }
+
+        }
+        public override void AddRecipes() {
             Recipe.Create(ModContent.ItemType<Items.Murasama>())
-                .AddIngredient(ItemID.TinShortsword)
-				.Register();
+                .AddIngredient(ItemID.CopperShortsword)
+                .AddConsumeItemCallback(DontConsumeSword)
+                .Register();
             Recipe.Create(ModContent.ItemType<Items.Murasama>())
                 .AddIngredient(ItemID.IronShortsword)
+                .AddConsumeItemCallback(DontConsumeSword)
                 .Register();
-		}
-
-	}
+            Recipe.Create(ModContent.ItemType<Items.Murasama>())
+                .AddIngredient(ItemID.TinShortsword)
+                .AddConsumeItemCallback(DontConsumeSword)
+                .Register();
+        }
 }
