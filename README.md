@@ -10,9 +10,9 @@ Can spam: The original can't deal damage quickly through spam, but this mod can.
 
 Incomplete Particles: The original version will splash round and long particles from the target when it attacks the target, but this mod will only appear some round particles on the target.
 
-Murasama is made by Calamity Mod, I HAVE NO ownership over it nor its assets nor code.
+Provide credit to the Calamity Mod: Murasama is made by Calamity Mod, and all images, sound and most of the code in this mod come from Calamity Mod. I HAVE NO ownership over it nor its assets nor code.
 
-Calamity Mod Public repo:https://github.com/CalamityTeam/CalamityModPublic
+Calamity Mod Public repo: https://github.com/CalamityTeam/CalamityModPublic
 
 icon_workshop.gif:
 This file is took from Official Calamity Mod Wiki.
