@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GGiRFZXKSOs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Raion\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalMurasama\\CalMurasama.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Raion\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

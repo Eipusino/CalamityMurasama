@@ -1,0 +1,13 @@
+Items: {
+	Murasama: {
+		DisplayName: 鬼妖村正
+		Tooltip:
+			'''
+			一把高频剑，即使是最强大的怪物也能干净利落地切碎
+			第三段斩击会造成巨量伤害
+			[c/F41A31:“鲜血四溅！”]
+			'''
+	}
+}
+
+Projectiles.MurasamaSlash.DisplayName: Murasama Slash

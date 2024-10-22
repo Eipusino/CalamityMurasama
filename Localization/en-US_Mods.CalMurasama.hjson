@@ -1,0 +1,13 @@
+Items: {
+	Murasama: {
+		DisplayName: Murasama
+		Tooltip:
+			'''
+			A high-frequency blade that can cleanly slice through even the mightiest foe
+			Every third swing deals immense damage
+			[c/F41A31:'There will be blood!']
+			'''
+	}
+}
+
+Projectiles.MurasamaSlash.DisplayName: Murasama Slash
