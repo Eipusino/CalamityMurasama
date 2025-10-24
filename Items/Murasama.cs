@@ -40,7 +40,7 @@ namespace CalMurasama.Items
             Item.useTime = 5;
             Item.knockBack = 6.5f;
             Item.autoReuse = false;
-            Item.value = 0 ;
+            Item.value = Item.buyPrice(2, 2, 2, 2);
             Item.shoot = ModContent.ProjectileType<MurasamaSlash>();
             Item.shootSpeed = 24f;
             Item.rare = ItemRarityID.Yellow;

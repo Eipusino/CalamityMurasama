@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace CalMurasama
 {
-    public static partial class Functions
+    public static partial class CalMurasamaUtils
     {
         public static Rectangle GetCurrentFrame(this Item item, ref int frame, ref int frameCounter, int frameDelay, int frameAmt, bool frameCounterUp = true)
         {
@@ -32,5 +32,7 @@ namespace CalMurasama
             }
             return false;
         }
+
+        public static Item ActiveItem(this Player player) => Main.mouseItem.IsAir ? player.HeldItem : Main.mouseItem;
     }
 }

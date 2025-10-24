@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\CalamityMurasama\\CalMurasama.csproj": {}
+    "F:\\Projects\\CalMurasama\\CalMurasama.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\CalamityMurasama\\CalMurasama.csproj": {
+    "F:\\Projects\\CalMurasama\\CalMurasama.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\CalamityMurasama\\CalMurasama.csproj",
+        "projectUniqueName": "F:\\Projects\\CalMurasama\\CalMurasama.csproj",
         "projectName": "CalMurasama",
-        "projectPath": "F:\\Projects\\CalamityMurasama\\CalMurasama.csproj",
+        "projectPath": "F:\\Projects\\CalMurasama\\CalMurasama.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\CalamityMurasama\\obj\\",
+        "outputPath": "F:\\Projects\\CalMurasama\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"

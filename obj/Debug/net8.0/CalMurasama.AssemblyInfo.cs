@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CalMurasama")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c707b47ad1add169662f249ac0a8acae3c4d09b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bb19c8e8e414e2d5a7ebedb0f5c2fde2dbf4413")]
 [assembly: System.Reflection.AssemblyProductAttribute("CalMurasama")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CalMurasama")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

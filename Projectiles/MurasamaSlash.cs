@@ -2,6 +2,7 @@
 //using CalMurasama.Dusts;
 //using CalMurasama.Items.Weapons.Melee;
 using CalMurasama.Items;
+using CalMurasama.Particles;
 //using CalMurasama.Particles;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Xna.Framework;
@@ -38,7 +39,7 @@ namespace CalMurasama.Projectiles
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
-            Projectile.DamageType = MeleeNoSpeedDamageClass.Default;
+            Projectile.DamageType = MeleeNoSpeedDamageClass.Melee;
             Projectile.usesIDStaticNPCImmunity = true;
             Projectile.idStaticNPCHitCooldown = 6;
             Projectile.frameCounter = 0;
@@ -183,16 +184,15 @@ namespace CalMurasama.Projectiles
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.Organic())
-                SoundEngine.PlaySound(Murasama.OrganicHit with { Pitch = (Slash2 ? -0.1f : Slash3 ? 0.1f : Slash1 ? -0.15f : 0) }, Projectile.Center);
+                SoundEngine.PlaySound(Murasama.OrganicHit with { Pitch = Slash2 ? -0.1f : Slash3 ? 0.1f : Slash1 ? -0.15f : 0 }, Projectile.Center);
             else
-                SoundEngine.PlaySound(Murasama.InorganicHit with { Pitch = (Slash2 ? -0.1f : Slash3 ? 0.1f : Slash1 ? -0.15f : 0) }, Projectile.Center);
+                SoundEngine.PlaySound(Murasama.InorganicHit with { Pitch = Slash2 ? -0.1f : Slash3 ? 0.1f : Slash1 ? -0.15f : 0 }, Projectile.Center);
 
             for (int i = 0; i < 3; i++)
             {
                 Color impactColor = Slash3 ? Main.rand.NextBool(3) ? Color.LightCoral : Color.White : Main.rand.NextBool(4) ? Color.LightCoral : Color.Crimson;
                 float impactParticleScale = Main.rand.NextFloat(1f, 1.75f);
 
-                /*
                 if (Slash3)
                 {
                     SparkleParticle impactParticle2 = new SparkleParticle(target.Center + Main.rand.NextVector2Circular(target.width * 0.75f, target.height * 0.75f), Vector2.Zero, Color.White, Color.Red, impactParticleScale * 1.2f, 8, 0, 4.5f);
@@ -200,7 +200,6 @@ namespace CalMurasama.Projectiles
                 }
                 SparkleParticle impactParticle = new SparkleParticle(target.Center + Main.rand.NextVector2Circular(target.width * 0.75f, target.height * 0.75f), Vector2.Zero, impactColor, Color.Red, impactParticleScale, 8, 0, 2.5f);
                 GeneralParticleHandler.SpawnParticle(impactParticle);
-                */
             }
 
             float sparkCount = MathHelper.Clamp(Slash3 ? 18 - Projectile.numHits * 3 : 5 - Projectile.numHits * 2, 0, 18);
@@ -210,7 +209,7 @@ namespace CalMurasama.Projectiles
                 int sparkLifetime2 = Main.rand.Next(23, 35);
                 float sparkScale2 = Main.rand.NextFloat(0.95f, 1.8f);
                 Color sparkColor2 = Slash3 ? Main.rand.NextBool(3) ? Color.Red : Color.IndianRed : Main.rand.NextBool() ? Color.Red : Color.Firebrick;
-                /*
+
                 if (Main.rand.NextBool())
                 {
                     AltSparkParticle spark = new AltSparkParticle(target.Center + Main.rand.NextVector2Circular(target.width * 0.5f, target.height * 0.5f) + Projectile.velocity * 1.2f, sparkVelocity2 * (Slash3 ? 1f : 0.65f), false, (int)(sparkLifetime2 * (Slash3 ? 1.2f : 1f)), sparkScale2 * (Slash3 ? 1.4f : 1f), sparkColor2);
@@ -221,7 +220,6 @@ namespace CalMurasama.Projectiles
                     LineParticle spark = new LineParticle(target.Center + Main.rand.NextVector2Circular(target.width * 0.5f, target.height * 0.5f) + Projectile.velocity * 1.2f, sparkVelocity2 * (Projectile.frame == 7 ? 1f : 0.65f), false, (int)(sparkLifetime2 * (Projectile.frame == 7 ? 1.2f : 1f)), sparkScale2 * (Projectile.frame == 7 ? 1.4f : 1f), Main.rand.NextBool() ? Color.Red : Color.Firebrick);
                     GeneralParticleHandler.SpawnParticle(spark);
                 }
-                */
             }
             float dustCount = MathHelper.Clamp(Slash3 ? 25 - Projectile.numHits * 3 : 12 - Projectile.numHits * 2, 0, 25);
             for (int i = 0; i <= dustCount; i++)
