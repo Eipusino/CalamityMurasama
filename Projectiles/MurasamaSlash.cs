@@ -14,12 +14,13 @@ using Terraria.ModLoader;
 
 namespace CalMurasama.Projectiles
 {
-    public class MurasamaSlash : ModProjectile, ILocalizedModType
+    public class MurasamaSlash : ModProjectile
     {
         private Player Owner => Main.player[Projectile.owner];
         //public ref int hitCooldown => ref Main.player[Projectile.owner].CalMurasama().murasamaHitCooldown;
         public int hitCooldown = 0;
         public int time = 0;
+
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 14;
@@ -52,7 +53,7 @@ namespace CalMurasama.Projectiles
             Rectangle frame = texture.Frame(verticalFrames: Main.projFrames[Type], frameY: Projectile.frame);
             Vector2 origin = frame.Size() * 0.5f;
             SpriteEffects spriteEffects = Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition + (Projectile.velocity * 0.3f) + new Vector2(0, -32).RotatedBy(Projectile.rotation), frame, Color.White, Projectile.rotation, origin, Projectile.scale, spriteEffects, 0);
+            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition + Projectile.velocity * 0.3f + new Vector2(0, -32).RotatedBy(Projectile.rotation), frame, Color.White, Projectile.rotation, origin, Projectile.scale, spriteEffects, 0);
             return false;
         }
 
@@ -63,7 +64,7 @@ namespace CalMurasama.Projectiles
                 if (Main.zenithWorld)
                 {
                     Projectile.scale = 2;
-                    Projectile.damage = (int)(Projectile.damage * 2);
+                    Projectile.damage *= 2;
                 }
                 Projectile.frame = Main.zenithWorld ? 6 : 10;
                 Projectile.alpha = 0;
@@ -96,7 +97,7 @@ namespace CalMurasama.Projectiles
 
             if (Projectile.frame == 5 && Projectile.frameCounter % 3 == 0)
             {
-                Projectile.damage = (int)(Projectile.damage * 2);
+                Projectile.damage *= 2;
             }
             if (Projectile.frame == 7 && Projectile.frameCounter % 3 == 0)
             {
@@ -111,7 +112,7 @@ namespace CalMurasama.Projectiles
             }
 
             Vector2 origin = Projectile.Center + Projectile.velocity * 3f;
-            Lighting.AddLight(origin, Color.Red.ToVector3() * (Slashing == true ? 3.5f : 2f));
+            Lighting.AddLight(origin, Color.Red.ToVector3() * (Slashing ? 3.5f : 2f));
 
             Vector2 playerRotatedPoint = player.RotatedRelativePoint(player.MountedCenter, true);
             
@@ -125,7 +126,6 @@ namespace CalMurasama.Projectiles
                     Projectile.Kill();
                 }
             }
-            
 
             // Rotation and directioning.
             if (Slashing || Slash1)
@@ -232,8 +232,9 @@ namespace CalMurasama.Projectiles
                 dust2.noGravity = true;
             }
         }
+
         public override Color? GetAlpha(Color lightColor) => new Color(100, 0, 0, 0);
 
-        public override bool? CanDamage() => Slashing == false ? false : null;
+        public override bool? CanDamage() => Slashing ? null : false;
     }
 }

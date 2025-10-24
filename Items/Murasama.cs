@@ -11,15 +11,15 @@ namespace CalMurasama.Items
 {
     public class Murasama : ModItem
     {
-
         public int frameCounter = 0;
         public int frame = 0;
-        public bool IDUnlocked(Player player) => true;
+        public bool IsUnlocked(Player player) => true;// no
 
         public static readonly SoundStyle OrganicHit = new("CalMurasama/Sounds/MurasamaHitOrganic") { Volume = 0.45f };
         public static readonly SoundStyle InorganicHit = new("CalMurasama/Sounds/MurasamaHitInorganic") { Volume = 0.55f };
         public static readonly SoundStyle Swing = new("CalMurasama/Sounds/MurasamaSwing") { Volume = 0.2f };
         public static readonly SoundStyle BigSwing = new("CalMurasama/Sounds/MurasamaBigSwing") { Volume = 0.25f };
+
         public override void SetStaticDefaults()
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(2, 13));
@@ -30,7 +30,7 @@ namespace CalMurasama.Items
         {
             Item.width = 90;
             Item.height = 134;
-            Item.damage = 10;
+            Item.damage = 2222;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.noMelee = true;
             Item.noUseGraphic = true;
@@ -52,7 +52,7 @@ namespace CalMurasama.Items
         {
             Texture2D texture;
 
-            if (IDUnlocked(Main.LocalPlayer))
+            if (IsUnlocked(Main.LocalPlayer))
             {
                 //0 = 6 frames, 8 = 3 frames]
                 texture = ModContent.Request<Texture2D>(Texture).Value;
@@ -71,7 +71,7 @@ namespace CalMurasama.Items
         {
             Texture2D texture;
 
-            if (IDUnlocked(Main.LocalPlayer))
+            if (IsUnlocked(Main.LocalPlayer))
             {
                 texture = ModContent.Request<Texture2D>(Texture).Value;
                 spriteBatch.Draw(texture, Item.position - Main.screenPosition, Item.GetCurrentFrame(ref frame, ref frameCounter, 2, 13), lightColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
@@ -86,7 +86,7 @@ namespace CalMurasama.Items
 
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            if (!IDUnlocked(Main.LocalPlayer))
+            if (!IsUnlocked(Main.LocalPlayer))
                 return;
             Texture2D texture = ModContent.Request<Texture2D>("CalMurasama/Items/MurasamaGlow").Value;
             spriteBatch.Draw(texture, Item.position - Main.screenPosition, Item.GetCurrentFrame(ref frame, ref frameCounter, 2, 13, false), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
@@ -96,7 +96,7 @@ namespace CalMurasama.Items
         {
             if (player.ownedProjectileCounts[Item.shoot] > 0)
                 return false;
-            return IDUnlocked(player);
+            return IsUnlocked(player);
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -104,9 +104,5 @@ namespace CalMurasama.Items
             Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI, 0f, 0f);
             return false;
         }
-
-
-
-
     }
 }
